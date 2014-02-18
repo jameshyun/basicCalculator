@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Calculator</title>
+	<style type="text/css">
+	 body {
+	 	width: 600px;
+	 	margin: 0 auto;
+	 	font: 100%/1.4 georgia, sans-serif, arial;
+
+	 }
+	 h1 {
+	 	font-size: 1.8em; 
+	 	text-align: center;
+	 }
+	 table, th, td {
+	 	border: 1px solid black;
+	 	margin: 0 auto;
+	 }
+	 th {
+	 	text-align: right;
+	 	width: 150px;
+	 	height: 30px;
+	 }
+	 td {
+	 	width: 200px;
+	 }	 
+	 #errorMsg {
+	 	text-align: center;
+	 	font: 1.4em sans-serif, arial;
+	 	color: red;
+	 }
+	 #errorMsg em {
+	 	font-size: 1.6em;
+	 	font-weight: bold;	 	
+	 }
+	</style>
+
+
+</head>
+<body>
+	<h1>Basic Calculator</h1>
+	
+	<table>
+		<form>
+			<tr>
+				<th>First Value:</th>
+				<td><input type="text" id="first-value" name="first-value"></td>
+			</tr>
+			<tr>
+				<th>Second Value:</th>
+				<td><input type="text" id="second-value" name="second-value"></td>
+			</tr>
+			<tr>
+				<th>Result:</th>
+				<td><input type="text" id="result" name="result" disabled></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" id="addition" name="addition" value="Addition" onclick="calculator('addition')">
+					<input type="button" id="subtraction" name="subtraction" value="Subtraction" onclick="calculator('subtraction')">
+					<input type="button" id="division" name="division" value="Division" onclick="calculator('division')">
+					<input type="button" id="multiplication" name="multiplication" value="Multiplication" onclick="calculator('multiplication')">
+					<button type="reset" value="Clear">Clear</button>
+				</td>
+			</tr>
+			
+		</form>
+	</table>
+	<h2 id='errorMsg'><h2>
+<!--Helper function to judge whether user inputs are number
+ #	Calculator
+		  # - Addition
+		  # - Subtraction
+		  # - Division
+		  # - Multiplication-->
+	<script>				
+	
+		function isNumber(first, second) {
+			if ( !isNaN(first) && !isNaN(second) ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function calculator( operator ) 
+		{			
+			// setting variables to get specific element for memory management purpose 
+			var firstField  = document.getElementById('first-value');
+			var secondField = document.getElementById('second-value');
+			var resultField = document.getElementById('result');
+			var errMSG 	    = document.getElementById('errorMsg');
+
+			// getting user inputs, and then casting it to number explicitly
+			var firstValue  = Number(firstField.value);
+			var secondValue = Number(secondField.value);						
+			
+			errMSG.innerHTML = "";
+			// run opration only if user inputs are valid
+			if ( isNumber(firstValue, secondValue) ) {												
+				switch( operator )
+				{
+					case 'addition':
+					resultField.value = firstValue + secondValue;
+					break;
+					case 'subtraction':
+					resultField.value = firstValue - secondValue;
+					break;
+					case 'division':
+					resultField.value = firstValue / secondValue;
+					break;
+					case 'multiplication':
+					resultField.value = firstValue * secondValue;
+					break;
+				}				
+			} else { // if user inputs are invalid output error message
+				errMSG.innerHTML += 'Please enter <em>number</em> only';
+				firstField.value = "";
+				secondField.value = "";
+				resultField.value = "";
+			}			
+		}
+
+	</script>
+</body>
+</html>

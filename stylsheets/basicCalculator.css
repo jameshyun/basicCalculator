@@ -1,0 +1,77 @@
+/*********************** Body *****************************/
+/* body */
+body {
+	width: 600px;
+	margin: 0 auto;
+	font: 100%/1.4 georgia, sans-serif, arial;
+}	 
+
+/* h1 */
+h1 {
+	font-size: 1.8em; 
+	text-align: center;
+}	 	 
+
+
+/*********************** Table *****************************/
+/* border line for table */
+table, th, td {
+	border: 1px solid black; 
+	margin: 0 auto; 		 
+}
+
+/* th */
+th {
+	text-align: right; 		 
+	width: 150px; height: 30px;			 
+	padding-right: 5px;
+}
+
+/* td */
+td {
+	width: 250px;		     
+}	 
+
+/* left column */
+td input.field {
+	width: 210px;			 
+	margin-left: 5px;		
+}
+
+/* gray background for result field */
+td input#result { 
+	background: #eeeeee; 	
+}
+	
+/* Button Wrapper */
+.btns-wrapper {
+	width: 215px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+/* Button */
+.btn { 
+	width: 105px;
+	font-size: .9em;
+	font-weight: normal;
+	font-family: "arial rounded mt bold";
+	padding-top: 5px; 
+}
+
+
+/********************* Error Messege ************************/
+/* font family, color and align for h2 */
+#errorMsg {
+	text-align: center;
+	font: 1.4em sans-serif, arial;
+	color: red;
+}
+
+/* font size and weight for em */
+#errorMsg em {
+	font-size: 1.6em;
+	font-weight: bold;	 	
+}

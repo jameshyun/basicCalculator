@@ -2,81 +2,55 @@
 <html>
 <head>
 	<title>Basic Calculator</title>
-	<style type="text/css">
-	 body {
-	 	width: 600px;
-	 	margin: 0 auto;
-	 	font: 100%/1.4 georgia, sans-serif, arial;
+	<link rel="stylesheet" type="text/css" href="stylsheets/basicCalculator.css">
 
-	 }
-	 h1 {
-	 	font-size: 1.8em; 
-	 	text-align: center;
-	 }
-	 table, th, td {
-	 	border: 1px solid black;
-	 	margin: 0 auto;
-	 }
-	 th {
-	 	text-align: right;
-	 	width: 150px;
-	 	height: 30px;
-	 }
-	 td {
-	 	width: 200px;
-	 }	 
-	 #errorMsg {
-	 	text-align: center;
-	 	font: 1.4em sans-serif, arial;
-	 	color: red;
-	 }
-	 #errorMsg em {
-	 	font-size: 1.6em;
-	 	font-weight: bold;	 	
-	 }
-	</style>
-
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
 </head>
 <body>
-	<h1>Basic Calculator</h1>
+	<h1>Basic Calculator</h1>  <!-- heading -->
 	
-	<table>
-		<form>
+	<table>  <!-- table start -->
+		<form>  <!-- form start -->
 			<tr>
-				<th>First Value:</th>
-				<td><input type="text" id="first-value" name="first-value"></td>
+				<th>First Value : </th>
+				<td><input class="field" type="text" id="first-value" name="first-value"></td>
 			</tr>
 			<tr>
-				<th>Second Value:</th>
-				<td><input type="text" id="second-value" name="second-value"></td>
+				<th>Second Value :</th>
+				<td><input class="field" type="text" id="second-value" name="second-value"></td>
 			</tr>
 			<tr>
-				<th>Result:</th>
-				<td><input type="text" id="result" name="result" disabled></td>
+				<th>Result : </th>
+				<td><input class="field" type="text" id="result" name="result" disabled></td> <!-- result field disabled -->
 			</tr>
+
 			<tr>
-				<td></td>
+				<th></th>
 				<td>
-					<input type="button" id="addition" name="addition" value="Addition" onclick="calculator('addition')">
-					<input type="button" id="subtraction" name="subtraction" value="Subtraction" onclick="calculator('subtraction')">
-					<input type="button" id="division" name="division" value="Division" onclick="calculator('division')">
-					<input type="button" id="multiplication" name="multiplication" value="Multiplication" onclick="calculator('multiplication')">
-					<button type="reset" value="Clear">Clear</button>
+					<div class="btns-wrapper">
+						<input class="btn" type="button" id="addition" name="addition" value="Addition" onclick="calculator('addition')">
+						<input class="btn" type="button" id="subtraction" name="subtraction" value="Subtraction" onclick="calculator('subtraction')">
+						<input class="btn" type="button" id="multiplication" name="multiplication" value="Multiplication" onclick="calculator('multiplication')">				
+						<input class="btn" type="button" id="division" name="division" value="Division" onclick="calculator('division')">			
+						
+						<input class="btn" type="reset" value="Clear">
+					</div>
 				</td>
 			</tr>
 			
-		</form>
-	</table>
-	<h2 id='errorMsg'><h2>
-<!--Helper function to judge whether user inputs are number
- #	Calculator
-		  # - Addition
-		  # - Subtraction
-		  # - Division
-		  # - Multiplication-->
-	<script>				
+		</form> <!-- form end -->
+	</table> <!-- table end -->
+
+	<h2 id='errorMsg'><h2>  <!-- error message -->
+
 	
+	<script>				
+		/*	Helper function 
+		 *  - judge whether user inputs are number
+		 */
 		function isNumber(first, second) {
 			if ( !isNaN(first) && !isNaN(second) ) {
 				return true;
@@ -85,6 +59,13 @@
 			}
 		}
 
+		/*
+		Calculator
+		 * - Addition
+		 * - Subtraction
+		 * - Division
+		 *- Multiplication-->
+		 */
 		function calculator( operator ) 
 		{			
 			// setting variables to get specific element for memory management purpose 
